@@ -11,7 +11,6 @@ struct elementos{
     char lugar[10];
 };
 
-
 struct secundario{
     char *op1;
     char *op2;
@@ -37,46 +36,22 @@ int main(){
     num = rand() % 5;
     
     switch (num){
-        case 0:
-            cout<<e.nombre<<" "<<e.apellido<<" y su"<<sec.op1;
-            break;
-        case 1:
-            cout<<e.nombre<<" "<<e.apellido<<" y su"<<sec.op2;
-            break;
-        case 2:
-            cout<<e.nombre<<" "<<e.apellido<<" y su"<<sec.op3;
-            break;
-        case 3:
-            cout<<e.nombre<<" "<<e.apellido<<" y su"<<sec.op4;
-            break;
-        case 4:
-            cout<<e.nombre<<" "<<e.apellido<<" y su"<<sec.op5;
-            break;    
-        default:
-            break;
+        case 0: cout<<e.nombre<<" "<<e.apellido<<" y su"<<sec.op1; break;
+        case 1: cout<<e.nombre<<" "<<e.apellido<<" y su"<<sec.op2; break;
+        case 2: cout<<e.nombre<<" "<<e.apellido<<" y su"<<sec.op3; break;
+        case 3: cout<<e.nombre<<" "<<e.apellido<<" y su"<<sec.op4; break;
+        case 4: cout<<e.nombre<<" "<<e.apellido<<" y su"<<sec.op5; break;    
     }
     sec=llenar_campos(comp1, comp2, comp3, comp4, comp5);
 
     num = rand() % 5;
     
     switch (num){
-        case 0:
-            cout<<sec.op1;
-            break;
-        case 1:
-            cout<<sec.op2;
-            break;
-        case 2:
-            cout<<sec.op3;
-            break;
-        case 3:
-            cout<<sec.op4;
-            break;
-        case 4:
-            cout<<sec.op5;
-            break;    
-        default:
-            break;
+        case 0: cout<<sec.op1; break;
+        case 1: cout<<sec.op2; break;
+        case 2: cout<<sec.op3; break;
+        case 3: cout<<sec.op4; break;
+        case 4: cout<<sec.op5; break;    
     }
     cout<<e.lugar<<endl;
 
