@@ -1,14 +1,13 @@
 //Dada una estructura con elementos repetidos hacer un algoritmo que deje una sola ocurrencia de los elementos.
-
+#include "funciones.h"
 #include <iostream>
 using namespace std;
 
-void mostrarVector(int vector[], int tope);
 void quitarRepetidos(int vector[], int &tope);
 
 int main(){
 
-    int vect[]={2,1,4,3,5,1,5,6,2,9,8,7,1,5,4}, tope=sizeof vect/sizeof vect[0];
+    int vect[]={2,1,4,3,5,1,5,6,2,9,7,7,1,5,4}, tope=sizeof vect/sizeof vect[0];
 
     mostrarVector(vect, tope);  
     quitarRepetidos(vect, tope);
@@ -18,12 +17,6 @@ int main(){
     return 0;
 }
 
-void mostrarVector(int vector[], int tope){
-    for(int i=0; i<tope; i++){
-        cout<<"["<<vector[i]<<"]";
-    }
-    cout<<endl;
-}
 
 void quitarRepetidos(int vector[], int &tope){
     int bandera, indice;
