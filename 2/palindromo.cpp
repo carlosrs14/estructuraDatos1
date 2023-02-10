@@ -41,13 +41,11 @@ bool esPalindroma(char palabra[], int &tam){
 }
 
 void borrarEspacios(char palabra[], int &tam){
-    int indice;
     char vacio[]=" ";
 
     for(int i=0;i<tam;i++){
         if(palabra[i]==vacio[0]){
-            indice=i;
-            for(int j=indice; j<tam; j++){
+            for(int j=i; j<tam; j++){
                 palabra[j]=palabra[j+1];
             }
             tam--;
