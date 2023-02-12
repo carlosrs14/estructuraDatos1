@@ -25,12 +25,15 @@ Nodo * buscar(int db, Nodo*cab){
     return NULL;
 }
 
-void insertarCabeza(int d, Nodo*&cab){
+void insertarCabeza(int d, Nodo*&cab, Nodo*&cola){
     Nodo *p =crearNodo(d, cab);
     cab=p;
+    if(cola==NULL){
+        cola=p;
+    }
 }
 
-void insertarCola(int d, Nodo*&cab){
+void insertarCola(int d, Nodo*&cab, Nodo*&cola){
 
     Nodo *p=cab;
     if(p==NULL){
@@ -41,26 +44,30 @@ void insertarCola(int d, Nodo*&cab){
         }
         Nodo *nuevo =crearNodo(d, NULL);
         p->sgt=nuevo;
+        cola=nuevo;
     }
 }
 
-void insertarDespues(int d, int db, Nodo*cab){
+void insertarDespues(int d, int db, Nodo*cab,Nodo*&cola){
     Nodo *q=buscar(db, cab);
     if(q!=NULL){
         Nodo *p =crearNodo(d, NULL); 
         p->sgt=q->sgt;
         q->sgt=p;
+        if(q==cola){
+            cola=p;
+        }
     }else{
         cout<<"No se encontro el elemento a buscar"<<endl;
     }
 }
 
-void insertarAntes(int di,int db,Nodo *&cab){
+void insertarAntes(int di,int db,Nodo *&cab, Nodo *&cola){
 	Nodo *ant=NULL;
 	for(Nodo *p=cab;p!=NULL;p=p->sgt){
 		if(p->dato==db){
 			if(p==cab){
-				insertarCabeza(di, cab);
+				insertarCabeza(di, cab, cola);
 			}else{
 				ant->sgt=crearNodo(di,p);
 			}
@@ -75,4 +82,92 @@ void imprimirLista(Nodo * cab){
         cout<<"["<<p->dato<<"]->";
     }
     cout<<"NULL"<<endl;
+}
+
+void insertarColaOptimo(int d, Nodo * &cola){
+    Nodo *p=crearNodo(d,NULL);
+    cola->sgt=p;
+    cola=p;
+}
+
+void modificarPorIndice(){
+    return;
+}
+
+void eliminarCabeza(Nodo *&cab){
+    if(cab==NULL){
+        cout<<"Lista vacia"<<endl;
+    }else{
+        cab=cab->sgt;
+    }
+}
+
+void eliminarIndice(int i, Nodo *&cab, Nodo *&cola){
+    Nodo * p=cab;
+    Nodo * ant=NULL;
+    int indice=0;
+    while(p!=NULL){
+        if(i==0){
+            eliminarCabeza(cab);
+            return;
+        }
+        if(indice==i){
+            ant->sgt=p->sgt;
+            return;
+        }
+        indice++;
+        ant=p;
+        p=p->sgt;
+    }
+    cout<<"Fuera de rango"<<endl;
+    return;
+}
+
+void eliminarDato(int d, Nodo *&cab, Nodo *&cola){
+    Nodo * ant=NULL;
+    Nodo * p=cab;
+    while(p!=NULL){
+        if(d==cab->dato){
+            eliminarCabeza(cab);
+            return;
+        }
+        if(d==p->dato){
+            ant->sgt=p->sgt;
+            return;
+        }
+        ant=p;
+        p=p->sgt;
+    }
+    cout<<"Valor no encontrado"<<endl;
+    return;
+}
+void eliminarTodos(int d, Nodo *&cab, Nodo *&cola){
+    int cont=0;
+    Nodo * ant=NULL;
+    Nodo * p=cab;
+   
+    while(p!=NULL){
+        if(d==cab->dato){
+            eliminarCabeza(cab);
+        }else if(d==p->dato){
+                ant->sgt=p->sgt;
+                cont++;
+            }
+        ant=p;
+        p=p->sgt;
+    }
+    if(cont==0){
+    cout<<"Valor no encontrado"<<endl;
+    }
+    return;
+}
+int contarRepeticiones(int d, Nodo * cab){
+    int cont=0;
+    while(cab!=NULL){
+        if(d==cab->dato){
+            cont++;
+        }
+        cab=cab->sgt;
+    }
+    return cont;
 }
