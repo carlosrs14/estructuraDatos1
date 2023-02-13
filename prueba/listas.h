@@ -108,6 +108,9 @@ void eliminarIndice(int i, Nodo *&cab, Nodo *&cola){
     int indice=0;
     while(p!=NULL){
         if(i==0){
+            if(p->sgt==NULL){
+                cola=NULL;
+            }
             eliminarCabeza(cab);
             return;
         }
@@ -128,6 +131,9 @@ void eliminarDato(int d, Nodo *&cab, Nodo *&cola){
     Nodo * p=cab;
     while(p!=NULL){
         if(d==cab->dato){
+            if(p->sgt==NULL){
+                cola=NULL;
+            }
             eliminarCabeza(cab);
             return;
         }
@@ -141,26 +147,7 @@ void eliminarDato(int d, Nodo *&cab, Nodo *&cola){
     cout<<"Valor no encontrado"<<endl;
     return;
 }
-void eliminarTodos(int d, Nodo *&cab, Nodo *&cola){
-    int cont=0;
-    Nodo * ant=NULL;
-    Nodo * p=cab;
-   
-    while(p!=NULL){
-        if(d==cab->dato){
-            eliminarCabeza(cab);
-        }else if(d==p->dato){
-                ant->sgt=p->sgt;
-                cont++;
-            }
-        ant=p;
-        p=p->sgt;
-    }
-    if(cont==0){
-    cout<<"Valor no encontrado"<<endl;
-    }
-    return;
-}
+
 int contarRepeticiones(int d, Nodo * cab){
     int cont=0;
     while(cab!=NULL){

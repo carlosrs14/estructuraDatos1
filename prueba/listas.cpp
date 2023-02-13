@@ -38,17 +38,16 @@ int main(){
     insertarColaOptimo(29, cola);
     imprimirLista(cab);
     
-    eliminarIndice(7,cab);
-    eliminarIndice(0,cab);
-    eliminarIndice(80,cab);
+    eliminarIndice(7,cab, cola);
+    eliminarIndice(0,cab, cola);
+    eliminarIndice(80,cab, cola);
     imprimirLista(cab);
 
 
-    eliminarDato(15, cab);
-    eliminarDato(17, cab);
+    eliminarDato(15, cab, cola);
+    eliminarDato(17, cab, cola);
     imprimirLista(cab);
 
-    eliminarTodos(17, cab);
     imprimirLista(cab);
 
     return 0;
