@@ -1,22 +1,16 @@
-#include<iostream>
+#include <iostream>
+#include <stdlib.h>
+#include <cstring>
 
 using namespace std;
 
 int main(){
-	int edad;
-	cout<<"Ingrese la edad: ";
-	cin>>edad;
+	
 
-	if(edad>0 && edad<5){
+	cout<<strcmp("hola", "cadena")<<endl<<endl;
+	system("pausa");
+	system("clear");
+	cout<<strcmp("hola", "hola")<<endl<<endl;
 
-	}else 
-		if(edad>=6 && edad<11){
-
-	}else 
-		if(edad>=11){
-
-	}
-
-
-	return 0;	
+	return 0;
 }

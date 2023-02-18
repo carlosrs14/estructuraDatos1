@@ -11,7 +11,6 @@ int main(){
     insertarCabeza(15, cab, cola);
     insertarCabeza(16, cab, cola);
     insertarCabeza(17, cab, cola);
-    insertarCabeza(17, cab, cola);
     //imprimirLista(cab);
 
     insertarCola(18, cab, cola);
