@@ -143,6 +143,8 @@ int main(){
             break;
         }
     }
-    cout<<"Fin del programa";
+    
+    cout<<"Fin del programa"<<endl;
+
     return 0;
 }
